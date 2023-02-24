@@ -1,5 +1,10 @@
+@checkedBackColor: #46515a; //导航、navBar按钮选中背景色
+@checkedFontColor: #1677ff; //导航、navBar按钮选中字体色
+@leftContainerWidth: 275px; //head-leftLogo、导航栏宽度
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /*主题*/
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,6 +17,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* default-property */
+  --body-header-height: 64px;
+  --body-container-width: 100vw;
+  /*容器默认宽度*/
+  --body-container-height: 100vh;
+  /*容器默认高度*/
+  --navbar-container-width: @leftContainerWidth;
+  /*侧边栏宽度*/
+  --button-checked-backColor: @checkedBackColor;
+  /*导航、侧边栏按钮选中背景色*/
+  --button-checked-fontColor: @checkedFontColor;
+  /*导航、侧边栏按钮选中字体色*/
+
+
 }
 
 a {
@@ -19,16 +39,25 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
+:where(a, li):hover {
+  cursor: pointer;
+}
+
 body {
+  overflow-x: hidden;
   margin: 0;
-  display: flex;
+  padding: 0;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  min-width: var(--body-container-width);
+  max-width: var(--body-container-width);
+  min-height: var(--body-container-height);
+  transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-size: 14px;
 }
 
 h1 {
@@ -47,12 +76,19 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+//取消符号
+ul {
+  list-style: none;
 }
 
 @media (prefers-color-scheme: light) {
@@ -60,9 +96,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }

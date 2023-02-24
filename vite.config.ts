@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { build, defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import mdx from '@mdx-js/rollup'
@@ -15,4 +15,10 @@ export default defineConfig({
     react({
     include:[/\.(ts|tsx)$/]
   })],
+  css:{
+    devSourcemap:true
+  },
+  build:{
+    reportCompressedSize:false
+  }
 })

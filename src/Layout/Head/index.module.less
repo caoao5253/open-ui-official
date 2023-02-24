@@ -1,0 +1,85 @@
+.head-container {
+  height: var(--body-header-height);
+  text-align: center;
+  display: flex;
+
+  >.left-container {
+    width: var(--navbar-container-width);
+    height: 100%;
+    background-color: bisque;
+
+    >h1 {
+      margin: 0;
+      height: 100%;
+    }
+  }
+
+  >.right-container {
+    width: calc(100vw - var(--navbar-container-width));
+    background-color: #fff;
+    display: flex;
+    line-height: var(--body-header-height);
+    ;
+
+    >.nav-search-wrapper {
+      width: 920px;
+      height: 100%;
+      background-color: red;
+
+      @media (min-width:576px) {
+        background-color: cadetblue;
+      }
+    }
+
+    //head-right-menu
+    >.open-menu-root {
+      display: flex;
+      margin: 0;
+
+      //menu菜单节点默认样式
+      >.open-menu-item {
+        padding-left: 12px;
+        padding-right: 12px;
+        line-height: var(--body-header-height);
+        position: relative;
+        @color: #1677ff;
+
+        .after() {
+          top: 0;
+          right: $padding-right;
+          bottom: auto;
+          left: $padding-left;
+          border-width: 2px;
+          
+          position: absolute;
+          inset-inline: 16px;
+          content: '';
+          border-bottom: 2px solid transparent;
+        }
+
+        .borderdef() {
+          border-bottom-color: @color;
+        }
+
+        //选中
+        &-select {
+          color: @color;
+
+          &::before {
+            .after();
+            .borderdef();
+          }
+        }
+
+        //悬浮
+        &:hover::before {
+          .after();
+          .borderdef();
+        }
+
+      }
+
+
+    }
+  }
+}

@@ -1,11 +1,7 @@
-import Layout from './Layout/index'
-import './App.css'
+import Layout from "./Layout/index"
+import "./App.css"
 function App() {
-  return (
-    <div className="App">
-     <Layout/>
-    </div>
-  )
+  return <><Layout /></>
 }
 
 export default App
