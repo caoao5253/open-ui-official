@@ -12,7 +12,7 @@ const components = {
 };
 
 const MDX: React.FC<{ children?: any }> = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <MDXProvider components={components}>{props?.children && <props.children />}</MDXProvider>
