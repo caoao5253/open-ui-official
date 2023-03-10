@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { whiteRoute } from '@/src/resource/whiteList'
 import head from './index.module.less'
 import route from '@/router/index'
-import { MenuProps } from '@/src/components/Menu/config'
+import { MenuProps } from '@/src/components/Menu/config0'
 import { ReactComponent as Logo } from '@/src/assets/svg/github.svg'
 import { ItemEventType } from '@/src/components/Menu/MenuEvent'
 const items: MenuProps['item'] = []
