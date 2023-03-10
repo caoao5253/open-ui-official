@@ -13,73 +13,52 @@
       height: 100%;
     }
   }
-
   >.right-container {
     width: calc(100vw - var(--navbar-container-width));
     background-color: #fff;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     line-height: var(--body-header-height);
-    ;
 
     >.nav-search-wrapper {
-      width: 920px;
+      display: flex;
+      flex: auto;
       height: 100%;
       background-color: red;
-
+      min-width: 280px;
       @media (min-width:576px) {
         background-color: cadetblue;
       }
     }
-
-    //head-right-menu
-    >.open-menu-root {
-      display: flex;
-      margin: 0;
-
-      //menu菜单节点默认样式
-      >.open-menu-item {
-        padding-left: 12px;
-        padding-right: 12px;
-        line-height: var(--body-header-height);
-        position: relative;
-        @color: #1677ff;
-
-        .after() {
-          top: 0;
-          right: $padding-right;
-          bottom: auto;
-          left: $padding-left;
-          border-width: 2px;
-          
-          position: absolute;
-          inset-inline: 16px;
-          content: '';
-          border-bottom: 2px solid transparent;
+    a{
+      all: initial;  //不继承父级元素样式属性
+      transition: all 0.1s;
+      >.btn-extend{
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        border: none;
+        background-color: transparent;
+        border-radius: 6px;
+        transition: all 0.2s;
+        line-height: 26px;
+        &:hover{
+          background-color: rgba(0,0,0,0.06);
         }
-
-        .borderdef() {
-          border-bottom-color: @color;
+        &:nth-last-of-type(1){
+          margin-right: 40px;
         }
-
-        //选中
-        &-select {
-          color: @color;
-
-          &::before {
-            .after();
-            .borderdef();
-          }
+        >.icon-extend{
+          display: inline-block;
+          font-size: 1.4em;
         }
-
-        //悬浮
-        &:hover::before {
-          .after();
-          .borderdef();
-        }
-
       }
-
-
+      @media all and (max-width: 1200px){
+        visibility: hidden;
+      }
     }
+    
   }
 }
