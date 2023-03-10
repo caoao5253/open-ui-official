@@ -1,0 +1,60 @@
+//head-right-menu
+.open-menu {
+
+  // 垂直排列
+  &-vertical {}
+
+  // 水平排列
+  &-horizontal {
+    display: flex;
+    margin: 0;
+  }
+
+  // 内嵌模式
+  &-inline {}
+
+  //menu菜单节点默认样式
+  >.open-menu-item {
+    display: inline-block;
+    padding-left: 12px;
+    padding-right: 12px;
+    line-height: var(--body-header-height);
+    position: relative;
+    @color: #1677ff;
+
+    //after伪元素样式
+    .after() {
+      display: inline-block;
+      top: 0;
+      right: $padding-right;
+      left: $padding-left;
+      bottom: auto;
+      border-width: 2px;
+      position: absolute;
+      inset-inline: 16px;
+      content: "";
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    &::after {
+      .after();
+    }
+
+    //选中
+    &-selected {
+      color: @color;
+
+      &::before {
+        .after();
+      }
+    }
+
+    //鼠标悬浮
+    &-active {
+      &::after {
+        border-bottom-color: @color;
+      }
+    }
+  }
+}
